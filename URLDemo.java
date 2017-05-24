@@ -53,19 +53,19 @@ for (int i = 0; i < lines.size(); i++){
 	System.out.println("The stock price is: " + number);
 	if (i == 1)
 	{
-		 stocktotal[i] = number * 900;
+		 stocktotal[i] = number * 1400;
 		System.out.println("The stocktotal is: " + stocktotal[i]);
 	}
 	
 	if (i == 0)
 	{
-		 stocktotal[i] = number * 500;
+		 stocktotal[i] = number * 0;
 		System.out.println("The stocktotal is: " + stocktotal[i]);
 	}
 	
 	if (i == 2)
 	{
-		 stocktotal[i] = number * 1000;
+		 stocktotal[i] = number * 0;
 		System.out.println("The stocktotal is: " + stocktotal[i]);
 	}
 	
