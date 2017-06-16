@@ -1,0 +1,15 @@
+package company.resources.human;
+import company.resources.transportation.Car;
+// import company.resources.transpotation.*;  // also ok
+// import company.resources.*;                // Wrong
+public class Staff {
+    public void drive() {
+        Car mycar = new Car();
+        mycar.accelerate();
+        System.out.println("The speed of mycar is " + mycar.speed);
+    }
+    public static void main(String[] args) {
+        Staff staff = new Staff();
+        staff.drive();
+    }
+}

@@ -1,0 +1,53 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        FamilyCar mycar = new FamilyCar();
+        mycar.engineRunning = true;
+        mycar.accelerate();
+        System.out.println("Car speed is : " + mycar.speed);
+        System.out.println("Car speed in mph is : " + mycar.speedInMph());        
+        Bicycle mybike = new Bicycle();
+        mybike.accelerate();
+        System.out.println("Bicycle speed is : " + mybike.speed);        
+    }
+}
+
+interface Drivable {
+    final float km2mile = 0.62f;
+    void accelerate();
+    void brake();
+}
+
+abstract class Car implements Drivable {
+    char color;
+    boolean engineRunning;
+    int speed;
+    public void brake() {
+        speed = speed - 10;
+    }
+}
+
+class FamilyCar extends Car {
+    public void accelerate() {
+        if (engineRunning) {
+            speed = speed + 10;
+        }
+    }
+    int speedInMph() {
+       // km2mile = 3; // Error! constants cannot be changed
+       return (int) (speed * km2mile);
+    }
+}
+
+class Bicycle implements Drivable {
+    int speed;
+    public void accelerate() {
+        speed = speed + 2;
+    }
+    public void brake() {
+        speed = speed - 2;
+    }
+}
+
+

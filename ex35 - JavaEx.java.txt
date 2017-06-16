@@ -1,0 +1,78 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        RacingCar racingcar2 = new RacingCar();
+        Car car3 = new RacingCar();
+        Bicycle bike4 = new Bicycle();
+        Drivable[] darray = {car1, racingcar2, car3, bike4};
+        for (Drivable d : darray) {
+            if (d instanceof RacingCar) {
+                ((RacingCar) d).setEngineStatus((byte) 1);
+            } else if (d instanceof Car) {
+                ((Car) d).engineRunning = true;
+            }
+            for (int i=1; i <=3; i++) {
+                d.accelerate();
+            }
+        }
+        System.out.print("Speed is");
+        System.out.print(" " + car1.speed);
+        System.out.print(" " + racingcar2.speed);
+        System.out.print(" " + car3.speed);
+        System.out.println(" " + bike4.speed);
+        System.out.println("car3 engineRunning is " + car3.engineRunning);
+        System.out.println("car3 engineRunning after casting is " + 
+                           ((RacingCar) car3).engineRunning);
+    }
+}
+
+interface Drivable {
+    void accelerate();
+    void brake();
+}
+
+class Car implements Drivable {
+    char color;
+    boolean engineRunning;
+    int speed;
+    public void accelerate() {
+        speed = speed + 10;
+    }
+    public void brake() {
+        speed = speed - 10;
+    }
+}
+
+class RacingCar extends Car {
+    byte engineRunning;
+    void setEngineStatus(byte b) {
+        engineRunning = b;
+        if (b > 0) {
+            super.engineRunning = true;
+        } else {
+            super.engineRunning = false;
+        }
+    }
+    public void accelerate() {
+        switch (engineRunning) {
+            case 1:
+                speed = speed + 12;
+                break;
+            case 2:
+                speed = speed + 22;
+                break;
+        }
+    }
+}
+
+class Bicycle implements Drivable {
+    int speed;
+    public void accelerate() {
+        speed = speed + 2;
+    }
+    public void brake() {
+        speed = speed - 2;
+    }
+}

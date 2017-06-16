@@ -1,0 +1,59 @@
+package javaex;
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        String s1 = "testing";
+        String s2 = "testing";
+        String string3 = new String("testing");
+        String string4 = new String("testing");
+        // System.out.println("s1 ID : " + System.identityHashCode(s1));        
+        // System.out.println("s2 ID : " + System.identityHashCode(s2));        
+        // System.out.println("string3 ID : " + System.identityHashCode(string3));        
+        // System.out.println("string4 ID : " + System.identityHashCode(string4));
+        System.out.println();
+        System.out.println("Comparing Objects ....");
+        System.out.println("s1 == s2 : " + (s1 == s2));
+        System.out.println("s1 == string3 : " + (s1 == string3));
+        System.out.println("string3 == string4 : " + (string3 == string4));
+        System.out.println();
+        System.out.println("Comparing Contents ....");
+        System.out.println("s1 equals s2 : " + s1.equals(s2));
+        System.out.println("s1 equals string3 : " + s1.equals(string4));
+        System.out.println("string3 equals string4 : " + string3.equals(string4));
+        System.out.println();
+        s1 = s1 + "1234";
+        System.out.println("After Modifying s1 Content ....");
+        // System.out.println("s1 ID : " + System.identityHashCode(s1));        
+        System.out.println("s1 == s2 : " + (s1 == s2));
+        System.out.println("s1 equals s2 : " + s1.equals(s2));
+        System.out.println();
+        smethod1(s2);
+        System.out.println("After Passing s2 to smethod1 ....");
+        // System.out.println("s2 ID : " + System.identityHashCode(s2));        
+        System.out.println("s2 equals testing : " + s2.equals("testing"));
+        System.out.println();
+        System.out.print("String Methods for s1 Containing (");
+        System.out.println(s1 + ") ....");
+        System.out.println("s1.charAt(0) : " + s1.charAt(0));        
+        System.out.println("s1.contains(\"ing\") : " + s1.contains("ing"));
+        System.out.println("s1.indexOf('e') : " + s1.indexOf('e'));
+        System.out.println("s1.length() : " + s1.length());
+        System.out.println("s1.replace(\"test\",\"play\") : " + 
+                            s1.replace("test","play"));
+        System.out.println("s1.substring(7) : " + s1.substring(7));
+        System.out.println("s1 is now : " + s1);
+        System.out.println();
+        System.out.println("Using StringBuilder ... ");        
+        StringBuilder sb1 = new StringBuilder("testing");
+        // System.out.println("ID before append : " + System.identityHashCode(sb1));
+        sb1.append("1234");
+        // System.out.println("ID after append : " + System.identityHashCode(sb1));
+        System.out.println("sb1 content is now : " + sb1);
+        System.out.println("sb1 equals testing : " + 
+                            sb1.toString().equals("testing1234"));
+    }
+    
+    static void smethod1(String str) {
+        str = str + "1234";
+    }
+}

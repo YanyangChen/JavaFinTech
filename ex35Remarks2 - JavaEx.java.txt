@@ -1,0 +1,71 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Vehicle[] varray = {new Car(), new RacingCar(), 
+                            new RacingCar(), new Bicycle()};
+        System.out.print("Speed is");
+        for (Vehicle v : varray) {
+            v.startEngine();
+            for (int i=1; i <=3; i++) {
+                v.accelerate();
+            }
+            System.out.print(" " + v.speed);
+        }
+        System.out.println();        
+    }
+}
+
+abstract class Vehicle {
+    int speed;
+    abstract void accelerate();
+    abstract void brake();
+    abstract void startEngine();
+}
+
+class Car extends Vehicle {
+    char color;
+    boolean engineRunning;
+    void accelerate() {
+        speed = speed + 10;
+    }
+    void brake() {
+        speed = speed - 10;
+    }
+    void startEngine() {
+        engineRunning = true;
+    }
+}
+
+class RacingCar extends Car {
+    byte engineRunning;
+    public void startEngine() {
+        engineRunning = 1;
+    }
+    public void startTurbo() {
+        if (engineRunning == 1) {
+            engineRunning = 2;
+        }
+    }
+    public void accelerate() {
+        switch (engineRunning) {
+            case 1:
+                speed = speed + 12;
+                break;
+            case 2:
+                speed = speed + 22;
+                break;
+        }
+    }
+}
+
+class Bicycle extends Vehicle {
+    public void accelerate() {
+        speed = speed + 2;
+    }
+    public void brake() {
+        speed = speed - 2;
+    }
+    void startEngine() {  // no statement since no enigne
+    }
+}

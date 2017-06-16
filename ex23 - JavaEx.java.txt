@@ -1,0 +1,21 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        String o = "";
+        z:
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                if (x == 1) {
+                    continue;
+                }
+                if (x == 2 && y == 1) {
+                    continue z;
+                }
+                System.out.printf("x:%1s,y:%1s%n",x,y);
+                o = o + x + y;
+            }
+        }
+        System.out.println(o);
+    }
+}

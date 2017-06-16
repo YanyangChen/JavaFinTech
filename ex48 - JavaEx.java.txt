@@ -1,0 +1,88 @@
+package javaex;
+
+import java.util.ArrayList;
+import java.util.function.Predicate;
+
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        ArrayList<Car> al = new ArrayList();
+        al.add(new Car("AB1234",10));
+        al.add(new Car("BC2345",20));
+        al.add(new Car("CD3456",30));
+        al.add(new Car("DE4567",40));
+        System.out.print("ArrayList al contains : ");
+        System.out.println(al);
+        System.out.println();
+        System.out.println("Runing showSpeed() for Cars in al ... ");
+        al.forEach(c -> c.showSpeed());
+        System.out.println();
+        // ArrayList fastcar = al.stream().filter(c -> c.speed > 15).collect(
+        //                        java.util.stream.Collectors.toCollection(ArrayList::new));
+        // System.out.print("ArrayList fastcar contains : ");
+        // System.out.println(fastcar);
+        // System.out.println();
+        al.removeIf(c -> c.speed > 25);
+        System.out.print("ArrayList al after removeIf : ");
+        System.out.println(al);
+        System.out.println();
+
+        CarList cl = new CarList();
+        cl.add(new Car("AB1234",10));
+        cl.add(new Car("BC2345",20));
+        cl.add(new Car("CD3456",30));
+        cl.add(new Car("DE4567",40));
+        CarList.findCarFromList(cl, c -> c.speed > 25);
+        cl.findCar(c -> c.speed > 25);
+        cl.findCar(c -> c.toString().contains("2"));
+        System.out.println();
+        ArrayList fastcar2 = cl.findCar2List(c -> c.speed > 25);
+        System.out.print("ArrayList fastcar2 contains : ");
+        System.out.println(fastcar2);
+    }
+}
+
+class Car {
+    String licenseNo;
+    int speed;
+    Car (String s, int i) {
+        licenseNo = s;
+        speed = i;
+    }
+    public String toString() {
+        return licenseNo;
+    }
+    void showSpeed() {
+        System.out.println("Speed of " + licenseNo + " : " + speed);
+    }
+}
+
+class CarList extends ArrayList<Car> {
+    static void findCarFromList(ArrayList<Car> list, Predicate<Car> p) {
+        System.out.print("Output from findCarFromList : ");
+        for (Car c : list) {
+            if (p.test(c)) {
+                System.out.print(c + " ");
+            }
+        }
+        System.out.println();
+    }
+    void findCar(Predicate<Car> p) {
+        System.out.print("Output from findCar : ");
+        for (Car c : this) {
+            if (p.test(c)) {
+                System.out.print(c + " ");
+            }
+        }
+        System.out.println();
+    }
+    ArrayList findCar2List(Predicate<Car> p) {
+        ArrayList list = new ArrayList();
+        for (Car c : this) {
+            if (p.test(c)) {
+                list.add(c);
+            }
+        }
+        return list;
+    }
+}

@@ -1,0 +1,6 @@
+package company.resources.transportation;
+public class Car extends Vehicle {
+    public void accelerate() {
+        speed = speed + 20;
+    }
+}

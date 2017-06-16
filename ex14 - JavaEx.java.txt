@@ -1,0 +1,18 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int[] branch1StaffAge = {26,27,28};
+        int[][] companyStaffAge = {{36,37,38,39},branch1StaffAge,{}};
+        System.out.println("Company has "+companyStaffAge.length+" branch");
+        System.out.println("Branch0 has "+companyStaffAge[0].length+" staff");
+        System.out.println("Branch1 has "+companyStaffAge[1].length+" staff");
+        System.out.println("Branch1 has "+branch1StaffAge.length+" staff");
+        //System.out.println("Branch2 has "+companyStaffAge[2].length+" staff");
+        System.out.println();
+        System.out.println("companyStaffAge is a "+companyStaffAge.getClass());
+        System.out.println("branch1StaffAge is a "+ branch1StaffAge.getClass());
+        System.out.println(companyStaffAge.getClass().isArray());                
+        System.out.println(branch1StaffAge.getClass().isArray());
+    }
+}

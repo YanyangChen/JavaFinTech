@@ -1,0 +1,14 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int[] studentAge = new int[3];
+        studentAge[0] = 11;
+        studentAge[2] = 13;
+        // studentAge[3] = 14; // cause ArrayIndexOutOfBoundsException when running
+        System.out.println("The age of the students are :");
+        System.out.println(studentAge[0]);
+        System.out.println(studentAge[1]);
+        System.out.println(studentAge[2]);
+    }
+}

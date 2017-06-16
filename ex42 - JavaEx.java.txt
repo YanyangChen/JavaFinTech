@@ -1,0 +1,32 @@
+package javaex;
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        int ivalue = 3;
+        Integer i1 = 3;
+        Integer i2 = Integer.valueOf("3");
+        Integer i3 = ivalue;
+        Integer i4 = i1;
+        Integer i5 = i1;
+        i5 = i5 - 2;
+        Integer integer6 = new Integer(3);
+        Integer integer7 = new Integer("3");
+        
+        Integer[] array = {i1,i2,i3,i4,i5,integer6, integer7};
+        String value = "Values : ";
+        String id = "ID hash : ";
+        String sameObject = "i1 == :";
+        String sameValue = "i1.compareTo() : ";
+        
+        for (Integer i : array) {
+            value += i + " "; 
+            id += System.identityHashCode(i) + " ";
+            sameObject += (i1 == i) + " ";
+            sameValue += i1.compareTo(i) + " ";
+        }
+        System.out.println(value);
+        System.out.println(id);
+        System.out.println(sameObject);
+        System.out.println(sameValue);        
+    }
+}

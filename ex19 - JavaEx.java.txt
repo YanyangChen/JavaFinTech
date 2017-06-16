@@ -1,0 +1,27 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int loopWhileSmaller = 6;
+        int c = 1;
+        while (c < loopWhileSmaller) {
+            System.out.println("while loop  :" + c);
+            c++;
+        }
+        c = 1;
+        do {
+            System.out.println("do-while loop :" + c);
+            c++;
+        } while (c < loopWhileSmaller);
+        c = 100;
+        while (c < loopWhileSmaller) {
+            System.out.println("while loop (c=100) :" + c);  // not run
+            c++;
+        }
+        c = 100;
+        do {
+            System.out.println("do-while loop (c=100) :" + c);
+            c++;
+        } while (c < loopWhileSmaller);
+    }
+}

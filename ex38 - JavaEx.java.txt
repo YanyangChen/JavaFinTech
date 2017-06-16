@@ -1,0 +1,99 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Car1 car1 = new Car1();
+        // car.engineRunning = true;                 // Error! Not allowed
+        // System.out.println(car.engineRunning); // Error! Not allowed
+        car1.setEngineRunning(true);
+        System.out.println(car1.getEngineRunning());
+        // car.speed = 300;                             // Error! Not allowed
+        // System.out.println(car.speed);               // Error! Not allowed
+        car1.setSpeed(300);                             // speed not increased 
+        System.out.println(car1.getSpeed());            // prints 0
+        car1.setSpeed(100);
+        System.out.println(car1.getSpeed());             // prints 100
+        
+        Car2 car2 = new Car2();
+        car2.setEngineRunning(true);
+        System.out.println(car2.getEngineRunning());     // prints true
+        System.out.println("Turbo : "+car2.getTurboEngineState());  // prints 1
+        car2.setSpeed(100);
+        System.out.println(car2.getSpeed());             // prints 100
+    }
+}
+
+class Car1 {
+    private boolean engineRunning;
+    private int speed;
+    // getter and setter for engineRunning
+    public boolean getEngineRunning() {
+        return engineRunning;
+    }
+    public void setEngineRunning(boolean b) {
+        engineRunning = b;
+    }
+    // getter and setter for speed    
+    public int getSpeed() {
+        return speed;
+    }
+    public void setSpeed(int i) {
+        if (i >= 0 && i <= 200) {
+            speed = i;
+        }
+    }
+    public void accelerate() {
+        if (engineRunning) {
+            speed = speed + 10;
+        }
+    }
+    public void brake() {
+        speed = speed - 10;
+    }
+}
+
+class Car2 {
+    private byte engineRunning;
+    private int speed;
+    // previous getter and setter
+    public boolean getEngineRunning() {
+        if (engineRunning > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public void setEngineRunning(boolean b) {
+        if (b) {
+            engineRunning = 1;
+        } else {
+            engineRunning = 0;
+        }
+    }
+    // getter and setter for engineRunning of byte
+    public byte getTurboEngineState() {
+        return engineRunning;
+    }
+    public void setTurboEngineState(byte b) {
+        engineRunning = b;
+    }
+    // getter and setter for speed    
+    public int getSpeed() {
+        return speed;
+    }
+    public void setSpeed (int i) {
+        if (i >= 0 && i <= 200) {
+            speed = i;
+        }
+    }
+    public void accelerate() {
+        switch (engineRunning) {
+            case 1:
+                speed = speed + 10;
+                break;
+            case 2:
+                speed = speed + 20;
+                break;
+        }
+    }
+}

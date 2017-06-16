@@ -1,0 +1,38 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car();
+        System.out.println("Before car1's Accelerate():");
+        System.out.print("car1 engineRunning : " + car1.engineRunning);
+        System.out.println("   speed : " + car1.speed);
+        System.out.print("car2 engineRunning : " + car2.engineRunning);
+        System.out.println("   speed : " + car2.speed);
+        System.out.println();
+        car1.engineRunning = true;
+        car1.accelerate();
+        System.out.println("After car1's Accelerate():");
+        System.out.print("car1 engineRunning : " + car1.engineRunning);
+        System.out.println("   speed : " + car1.speed);
+        System.out.print("car2 engineRunning : " + car2.engineRunning);
+        System.out.println("   speed : " + car2.speed);
+    }
+}
+
+class Car {
+    char color;
+    boolean engineRunning;
+    int speed;
+
+    void accelerate() {
+        if (engineRunning) {
+            speed = speed + 10;
+        }
+    }
+
+    void brake() {
+        speed = speed - 10;
+    }
+}
+

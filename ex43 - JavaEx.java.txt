@@ -1,0 +1,43 @@
+package javaex;
+
+public class JavaEx  {
+    
+    public static void main(String[] args) {
+        int i=12;
+        for (int j=-2;j<3;j++) {
+            try {
+                System.out.println(i/j);
+            } catch (ArithmeticException e) {
+                System.out.println("ArithmeticException occurred in i/j");
+            } finally {
+                System.out.println("Exiting exception handling for i/j");
+            }
+        }
+        try {
+            int x = method1(16, 3);
+            System.out.println("Temporay result x : " + x);
+            int y = method1(x, 0);
+            System.out.println("Temporay result y : " + y);
+            int z = method1(y, 0);
+            System.out.println("Final Result z : " + z);
+        } catch (ArithmeticException e) {
+            System.out.println("ArithmeticException occurred for calculating z");
+//            System.out.println(x);  // Compilation Error! x not available.
+        } finally {
+           System.out.println("Exiting exception handling for calculating z");
+        }
+        System.out.println("The program ends");
+    }
+    
+    static int method1(int a, int b) {
+        int result = 0;
+//        try {
+//            System.out.println("Opening resource used in method1");        
+            result = a / b;
+//        } finally {
+//            System.out.println("Closing resource used in method1");        
+//        }
+        System.out.println("method1 completed returning " + result);        
+        return result;
+    }
+}

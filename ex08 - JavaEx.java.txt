@@ -1,0 +1,37 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int a = 11;
+        long b = 12;
+        float c = 13;
+        float d = a + b + c;
+        int e = (int) (a + b + c);
+        //int f = a + b + c // error
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+        System.out.println(e);        
+        System.out.println();
+
+        float f1 = 1 / 2;
+        float f2 = 1f / 2; // or using 1 / 2f
+        double d1 = 1.0 / 2;
+        System.out.println(f1);
+        System.out.println(f2);
+        System.out.println(d1);
+        System.out.println();
+        
+        int i = Integer.MAX_VALUE; // 2147483647
+        int j = i + 1;
+        System.out.println(i);
+        System.out.print(j);
+        System.out.print(" Java 8 can map it to ");        
+        System.out.println(Integer.toUnsignedString(j));
+        int k = i + 2;
+        System.out.print(k);
+        System.out.print(" Java 8 can map it to ");        
+        System.out.println(Integer.toUnsignedString(k));
+    }
+}

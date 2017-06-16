@@ -1,0 +1,12 @@
+package company.resources.transportation;
+public class Car extends Vehicle {
+    public void accelerate() {
+        speed = speed + 20;     // allowed by protected (due to same package)
+    }
+    public void brake() {
+        super.brake();         // allowed by default package-private (due to same package)
+    }
+    public void printSpeed() {
+        // super.printSpeed();   // NOT allowed by private
+    }
+}

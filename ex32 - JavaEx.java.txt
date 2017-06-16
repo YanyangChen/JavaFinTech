@@ -1,0 +1,57 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        RacingCar racingcar1 = new RacingCar('R');
+        racingcar1.setEngineStatus((byte) 2);
+        racingcar1.accelerate();
+        System.out.println("RacingCar color : " + racingcar1.color);
+        System.out.println("RacingCar speed : " + racingcar1.speed);
+        System.out.println("SubClass engingRuning : " + racingcar1.engineRunning);
+        Car car1 = racingcar1;
+        System.out.println("SuperClass engingRuning : " + car1.engineRunning);
+    }
+}
+
+class Car {
+    char color;
+    boolean engineRunning;
+    int speed;
+    Car(char c) {
+        color = c;
+    }
+    void accelerate() {
+        if (engineRunning) {
+            speed = speed + 10;
+        }
+    }
+    void brake() {
+        speed = speed - 10;
+    }
+}
+
+class RacingCar extends Car {
+    byte engineRunning;
+    RacingCar(char c) {
+        super(c);
+    }
+    void setEngineStatus(byte b) {
+        engineRunning = b;
+        if (b > 0) {
+            super.engineRunning = true;
+        } else {
+            super.engineRunning = false;
+        }
+    }
+    void accelerate() {
+        switch (engineRunning) {
+            case 1:
+                super.accelerate();
+                break;
+            case 2:
+                super.accelerate();
+                speed = speed + 5;
+                break;
+        }
+    }
+}

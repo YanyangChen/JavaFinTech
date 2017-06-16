@@ -1,0 +1,59 @@
+package javaex;
+
+import java.io.*;
+
+public class JavaEx  {
+    public static void main(String[] args) throws IOException {
+        CarTesting.main(args);
+        System.out.println();                    
+        TrafficSimulation.main(args);        
+    }
+}
+
+class CarCrashException extends Exception {
+    CarCrashException() {
+    }
+    CarCrashException(String s) {
+        super(s);
+    }
+}
+
+class CarTesting {
+    public static void main(String[] args) {    
+        System.out.println("Running Car Testing ... ");
+        Car testcar = new Car();
+        try {
+            while (true) {
+                testcar.accelerate();
+            }
+        } catch (CarCrashException e) {
+            System.out.println(e.getMessage());            
+            System.out.println("Examine whether Airbag is working.");
+        }
+    }
+}
+
+class TrafficSimulation {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Running Traffic Simulation ... ");
+        Car car1 = new Car();
+        try {
+            while (true) {
+                car1.accelerate();
+            }
+        } catch (CarCrashException e) {
+            System.out.println("Reporting an accident.");
+        }
+    }    
+}
+
+class Car {
+    int speed;
+    void accelerate() throws CarCrashException {
+        speed = speed + 10;
+        if (speed > 100) {
+            throw new CarCrashException("Overspeed at " + speed);
+        }
+    }
+}
+

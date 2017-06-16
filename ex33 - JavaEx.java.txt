@@ -1,0 +1,34 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        FamilyCar mycar = new FamilyCar();
+        mycar.engineRunning = true;
+        mycar.accelerate();
+        mycar.accelerate();
+        mycar.brake();        
+        System.out.println(mycar.speed);
+    }
+}
+
+abstract class Vehicle {
+    int speed;
+    abstract void accelerate();
+    abstract void brake();
+}
+
+abstract class Car extends Vehicle {
+    char color;
+    boolean engineRunning;
+    void brake() {
+        speed = speed - 10;
+    }
+}
+
+class FamilyCar extends Car {
+    void accelerate() {
+        if (engineRunning) {
+            speed = speed + 10;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+package javaex;
+
+import java.time.*;
+import java.time.format.*;
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+                
+        LocalDateTime dt1 =  LocalDateTime.of(2016,1,31,13,30);
+        LocalDateTime dt2 =  LocalDateTime.of(2016,Month.JANUARY,31,13,30);
+        LocalDateTime dt3 =  LocalDateTime.parse("2016-01-31T13:30");
+        LocalDateTime dt4 =  LocalDateTime.parse("2016-01-31T13:30:00.000",
+                                DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        LocalDateTime dt5 = LocalDateTime.parse("31-01-2016 13:30",
+                                DateTimeFormatter.ofPattern("d-M-y H:m"));
+        LocalDate d = LocalDate.of(2016,1,31);
+        LocalTime t = LocalTime.of(13,30);
+        LocalDateTime dt6 = LocalDateTime.of(d, t);
+
+        System.out.println("Current Date-Time : " + now);
+        System.out.print("Current Date-Time : ");
+        System.out.println(now.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        
+        System.out.println("dt1.equals(dt2) : " + dt1.equals(dt2));
+        System.out.println("dt1.isEqual(dt3) : " + dt1.isEqual(dt3));
+        System.out.println("dt1.compareTo(dt4) : " + dt1.compareTo(dt4));
+        System.out.println("dt1.isBefore(dt5) : " + dt1.isBefore(dt5));
+        System.out.println("dt1.isAfter(dt6) : " + dt1.isAfter(dt6));
+        System.out.println();
+        
+        LocalDate d1 = LocalDate.parse("2016-02-28");
+        System.out.print("d1 is : ");
+        System.out.println(d1.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        // String s1 = d1.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME); // Exception!
+        System.out.println();
+
+        LocalDate d2 = d1.plusMonths(1);
+        System.out.print("d2 is : ");
+        System.out.println(d2.format(DateTimeFormatter.ofPattern("y/M/d")));
+        System.out.println("d1.compareTo(d2) : " + d1.compareTo(d2));
+        System.out.println("d1.isBefore(d2) : " + d1.isBefore(d2));        
+        System.out.println();
+        
+        LocalDate d3 = d1.plusDays(30);
+        System.out.print("d3 is : ");
+        System.out.println(d3.format(DateTimeFormatter.ofPattern("dd/MM")));
+        // String s2 = d3.format(DateTimeFormatter.ofPattern("h:m")); // Exception!
+        System.out.println();
+        
+        ZonedDateTime zdt = ZonedDateTime.of(now,ZoneId.of("Asia/Hong_Kong"));
+        System.out.println("HK time now ... ");
+        System.out.println("toString() : " + zdt);
+        System.out.print("ISO_DATE_TIME : ");
+        System.out.println(zdt.format(DateTimeFormatter.ISO_DATE_TIME));
+        System.out.print("ISO_LOCAL_DATE_TIME : ");
+        System.out.println(zdt.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+        ZonedDateTime zdt2 = zdt.withZoneSameInstant(ZoneId.of("Europe/London"));
+        System.out.println("London time is : " + zdt2);
+    }
+}

@@ -1,0 +1,29 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int[][] arrayOfInts = { {42, 64, 1, 686},
+                                {13, 1020, 2006, 20, 21},
+                                {5}
+                              };
+        int searchFor = 2006;
+        int i = 0;  // declare here to allow accessible out of for loop
+        int j = 0;  // declare here to allow accessible out of for loop
+        boolean fountIt = false;
+        search:
+        for (i = 0; i < arrayOfInts.length; i++) {
+            for (j = 0; j < arrayOfInts[i].length; j++) {
+                // System.out.println("Checking elements at i:" + i + ",j:" + j);
+                if (arrayOfInts[i][j] == searchFor) {
+                    fountIt = true;
+                    break search;
+                }
+            }
+        }
+        if (fountIt) {
+            System.out.println("Found " + searchFor + " at i:" + i + ",j:" + j);
+        } else {
+            System.out.println(searchFor + " is not in the array!");
+        }
+    }
+}

@@ -1,0 +1,31 @@
+package javaex;
+
+public class JavaEx {
+    int ivalue;
+    static int svalue; 
+
+    public static void main(String[] args) {
+        JavaEx obj1 = new JavaEx();
+        JavaEx obj2 = new JavaEx();
+        JavaEx.smethod();
+        obj1.smethod();
+        obj2.smethod();
+        smethod();
+        obj1.imethod();
+        obj2.imethod();
+        obj2.imethod();
+        // imethod();   // Error!!
+        System.out.println("svalue : " + svalue);
+        System.out.println("obj1's ivalue : " + obj1.ivalue);
+        System.out.println("obj2's ivalue : " + obj2.ivalue);
+    }
+
+    void imethod() {
+        ivalue++;
+    }
+
+    static void smethod() {
+        svalue++;
+    }
+}
+

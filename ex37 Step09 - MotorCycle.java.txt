@@ -1,0 +1,13 @@
+package company.logistics;
+import company.resources.transportation.*;
+public class MotorCycle extends Vehicle {
+    public void accelerate() {
+        speed = speed + 20;     // allowed by protected (due to subclass)
+    }
+    public void brake() {
+        // super.brake();      // NOT allowed by default package-private (not same package)
+    }
+    public void printSpeed() {
+        // super.printSpeed();   // NOT allowed by private
+    }
+}

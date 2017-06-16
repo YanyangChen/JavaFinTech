@@ -1,0 +1,78 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        FamilyCar mycar = new FamilyCar();
+        mycar.engineRunning = true;
+        mycar.accelerate();
+        System.out.println("mycar speed : " + mycar.speed);
+        FamilyCar.noOfAwards++;
+        FamilyCar.incrementAwards();
+        Car.incrementAwards();        
+        System.out.println("FamilyCar award : " + FamilyCar.noOfAwards);
+        System.out.println("Car award : " + Car.noOfAwards);
+        System.out.println();
+
+        DeluxeCar yourcar = new DeluxeCar();
+        yourcar.engineRunning = true;
+        yourcar.accelerate();
+        yourcar.readSpeed();
+        DeluxeCar.noOfAwards++;
+        System.out.println("DeluxeCar award : " + DeluxeCar.noOfAwards);
+        System.out.println("Car award : " + Car.noOfAwards);
+        System.out.println();
+
+        RacingCar hiscar = new RacingCar();
+        hiscar.engineRunning = 2;
+        hiscar.accelerate();
+        System.out.println("hiscar speed : " + hiscar.speed);
+    }
+}
+
+class Car {
+    static int noOfAwards;
+    char color;
+    boolean engineRunning;
+    int speed;
+    static void incrementAwards() {
+        noOfAwards++;
+    }
+    void accelerate() {
+        if (engineRunning) {
+            speed = speed + 10;
+        }
+    }
+    void brake() {
+        speed = speed - 10;
+    }
+}
+
+class FamilyCar extends Car {
+}
+
+class DeluxeCar extends Car {
+    static int noOfAwards;    
+    boolean unitInMile;
+    void readSpeed() {
+        if (unitInMile) {
+            System.out.println("Audio readout : " + speed * 0.62);
+        } else {
+            System.out.println("Audio readout : " + speed);
+        }
+    }
+}
+
+class RacingCar extends Car {
+    byte engineRunning;
+    void accelerate() {
+        switch (engineRunning) {
+            case 1:
+                speed = speed + 10;
+                break;
+            case 2:
+                speed = speed + 15;
+                break;
+        }
+    }
+}
+

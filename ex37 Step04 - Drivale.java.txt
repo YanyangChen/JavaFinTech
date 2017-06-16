@@ -1,0 +1,4 @@
+package company.resources.transportation;
+interface Drivable {
+    void accelerate();  // implied public
+}

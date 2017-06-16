@@ -1,0 +1,6 @@
+package company.logistics;
+public class MotorCycle extends Vehicle {
+    public void accelerate() {
+        speed = speed + 5;
+    }
+}

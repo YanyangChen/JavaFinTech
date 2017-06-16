@@ -1,0 +1,19 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        double a = 12345.45;
+        float b = (float) a;
+        // float b1 = a;    // uncomment this will cause error
+        long c = (long) a;
+        int d = (int) a;
+        short e = (short) a;
+        byte f = (byte) a;
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(d);
+        System.out.println(e);
+        System.out.println(f);
+    }
+}

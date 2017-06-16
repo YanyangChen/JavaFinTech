@@ -1,0 +1,28 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        System.out.print("Simple for loop from 1 to <6 : ");
+        for (int i = 1; i < 6; i++) {
+            System.out.print(i + " ");
+        }
+        // System.out.println(i);  // i not accessible
+        System.out.println();
+        char[] carray = {'a','e','i','o','u'};
+        System.out.print("Array elements in forward order : ");
+        for (int i = 0; i < carray.length; i++) {
+            System.out.print(carray[i] + " ");
+        }
+        System.out.println();
+        System.out.print("Array elements in reverse order : ");
+        for (int i = carray.length - 1; i >= 0; i--) {
+            System.out.print(carray[i] + " ");
+        }
+        System.out.println();
+        System.out.print("Alternate array elements : ");
+        for (int i = 0; i < carray.length; i+=2) {
+            System.out.print(carray[i] + " ");
+        }
+        System.out.println();
+    }
+}

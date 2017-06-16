@@ -1,0 +1,12 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int i = 2;
+        System.out.println(i);           // Prints 2
+        System.out.println(++i + 3);    // Prints 6
+        System.out.println(i);           // Prints 3
+        System.out.println(i++ + 3);    // Prints 6
+        System.out.println(i);           // Prints 4
+    }
+}

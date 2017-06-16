@@ -1,0 +1,79 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car('R',true,0);
+        System.out.println("Before accelerate:");
+        System.out.println("car1 : " + car1.color + 
+                           " " + car1.engineRunning + 
+                           " " + car1.speed);
+        System.out.println("car2 : " + car2.color + 
+                           " " + car2.engineRunning + 
+                           " " + car2.speed);
+        System.out.println("");
+        //car1.engineRunning = true;   // allow car1 to increase speed
+        car1.accelerate(3);
+        car2.accelerate("fast",2);
+        System.out.println("After accelerate:");
+        System.out.println("car1 : " + car1.color + 
+                           " " + car1.engineRunning + 
+                           " " + car1.speed);
+        System.out.println("car2 : " + car2.color + 
+                           " " + car2.engineRunning + 
+                           " " + car2.speed);
+    }
+}
+
+class Car {
+    char color;
+    boolean engineRunning;
+    int speed;
+    
+    Car() {
+        this('W');
+    }
+
+    Car(char color) {
+        this(color,false,0);
+    }
+
+    Car(char color, boolean engineRunning, int speed) {
+        this.color = color;
+        this.engineRunning = engineRunning;
+        this.speed = speed;
+        System.out.println("Creating Car object");
+    }
+
+    void accelerate() {
+        accelerate(1);
+    }
+
+    void accelerate(int times) {
+        accelerate("normal",times);
+    }
+
+    void accelerate(String str) {
+        accelerate(str,1);
+    }
+
+    void accelerate(String str, int times) {
+        if (engineRunning) {
+            switch (str) {
+                case "slow":
+                    speed = speed + 5 * times;
+                    break;
+                case "fast":
+                    speed = speed + 20 * times;
+                    break;
+                default:
+                    speed = speed + 10 * times;
+                    break;
+            }
+        }
+    }
+
+    void brake() {
+        speed = speed - 10;
+    }
+}

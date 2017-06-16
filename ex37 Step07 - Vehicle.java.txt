@@ -1,0 +1,16 @@
+package company.resources.transportation;
+public class Vehicle implements Drivable {
+    protected float speed;        // same package or subclass
+    public void accelerate() {    // all
+        speed = speed + 10;
+    }
+    void brake() {                // same package only
+        speed = speed + 10;
+    }
+    private void printSpeed() {   // same class only
+        System.out.println("Speed is " + speed);
+    }
+    public void showSpeed() {     // all
+        printSpeed();
+    }
+}

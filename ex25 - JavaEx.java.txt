@@ -1,0 +1,37 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Car car1 = new Car('W',true,0);
+        // Car car2 = new Car();  // Error! No more default constructor
+        car1.accelerate(3);  // increase speed 10*3
+        // car1.accelerate();    // Error! No accelerate() with no parameter
+        car1.brake();        // decrease speed 10  
+        System.out.println("car1 color : " + car1.color);
+        System.out.println("car1 engineRunning : " + car1.engineRunning);
+        System.out.println("car1 speed : " + car1.speed);
+        // System.out.println("car1 speed : " + this.speed); // Error!
+    }
+}
+
+class Car {
+    char color;
+    boolean engineRunning;
+    int speed;
+    
+    Car(char color, boolean engineRunning, int speed) {
+        this.color = color;
+        this.engineRunning = engineRunning;
+        this.speed = speed;
+    }
+
+    void accelerate(int times) {
+        if (engineRunning) {
+            speed = speed + 10 * times;
+        }
+    }
+
+    void brake() {
+        speed = speed - 10;
+    }
+}

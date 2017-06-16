@@ -1,0 +1,16 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int[] iarray = {1, 2, 3, 4, 5};
+        for (int i : iarray) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        char[] carray = {'a', 'e', 'i', 'o', 'u'};
+        for (char c : carray) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+    }
+}

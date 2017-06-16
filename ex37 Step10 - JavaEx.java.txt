@@ -1,0 +1,17 @@
+package javaex;
+import company.resources.transportation.*;
+public class JavaEx {
+    public static void main(String[] args) {
+        //Drivable d = new Car();      // Not allowed since different package
+        Vehicle v = new Car();         // Allowed since Vehicle and Car is public.
+        // v.speed = 10;               // Not allowed by protected 
+        v.accelerate();                // Allowed since accelerate() is public.
+        // v.brake();                  // Not allowed by default package-private 
+        // v.printSpeed();             // Not allowed by private
+        v.showSpeed();                 // Allowed since showSpeed() is public
+        Car c = new Car();               
+        c.accelerate();                // Allowed since Car's accelerate() is public
+        c.brake();                     // Allowed since Car's brake() is public
+        c.showSpeed();                 // Allowed since Car's showSpeed() is public
+    }
+}

@@ -1,0 +1,24 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int[][] childrenAge = new int[3][];
+        childrenAge[0] = new int[2];
+        childrenAge[0][0] = 6;
+        childrenAge[0][1] = 7;
+        childrenAge[1] = new int[3];
+        childrenAge[1][0] = 9;
+        childrenAge[1][1] = 8;
+        childrenAge[1][2] = 5;
+        System.out.println("The age of the childen are :");
+        System.out.println(childrenAge[0][0]);
+        System.out.println(childrenAge[0][1]);
+        System.out.println(childrenAge[1][0]);
+        System.out.println(childrenAge[1][1]);
+        System.out.println("childrenAge[0] ref is " + childrenAge[0]);
+        System.out.println("childrenAge[1] ref is " + childrenAge[1]);
+        System.out.println("childrenAge[2] ref is " + childrenAge[2]);
+        // System.out.println(childrenAge[2][0]); // Cause NullPointException
+        System.out.println((childrenAge[2] != null) ? childrenAge[2][0] : 0);
+    }
+}

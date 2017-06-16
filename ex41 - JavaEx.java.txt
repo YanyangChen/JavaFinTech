@@ -1,0 +1,47 @@
+package javaex;
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car();
+        car1.licenseNo = "AB1234";
+        car2.licenseNo = "CD5678";
+        System.out.println(car1);        // same as below
+        System.out.println(car1.toString());   // prints AB1234
+        System.out.println(car2);        // same as below
+        System.out.println(car2.toString());   // prints CD5678
+        
+        Square sq1 = new Square();
+        Square sq2 = new Square();
+        Square sq3 = new Square();        
+        sq1.length = 4;
+        sq2.length = 5;
+        sq3.length = 4;
+        System.out.println(sq1.equals(sq2));  // prints false
+        System.out.println(sq1.equals(sq3));  // prints true
+        System.out.println(sq1 == sq3);  // prints false since different objects      
+    }
+}
+
+class Car {
+    String licenseNo;
+    public String toString() {
+        return licenseNo;
+    }
+}
+
+class Square {
+    int length;
+    public boolean equals(Object object) {
+        boolean result = false;
+        if (object instanceof Square) {
+            Square sqobj = (Square) object;
+            if (length == sqobj.length) {
+                result = true;
+            }
+        }
+        return result;
+    }
+}
+
+

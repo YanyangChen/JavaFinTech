@@ -1,0 +1,23 @@
+class TestCar {
+    char color;
+    boolean engineRunning;
+    int speed;
+    void accelerate(int times) {
+        speed = speed + 10 * times;
+    }
+    void brake(int times) {
+        speed = speed - 10 * times;
+    }
+    public static void main(String[] args) {
+        TestCar car1 = new TestCar();
+        car1.engineRunning = true;
+        // if (args.length < 2) {
+        //  args = new String[2];
+        //  args[0] = System.console().readLine("Accelerate times : ");
+        //  args[1] = System.console().readLine("Brake times : ");
+        // }
+        car1.accelerate(Integer.parseInt(args[0]));
+        car1.brake(Integer.parseInt(args[1]));
+        System.out.println("car1 speed is : " + car1.speed);
+    }
+}

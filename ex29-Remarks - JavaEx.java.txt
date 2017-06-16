@@ -1,0 +1,15 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int num = 0;
+        for (String s : args) {
+            System.out.println(num + " : " + s);
+            num++;
+        }
+        // Since an index is needed for printing anyway, a normal for loop is preferred
+        // for (int i = 0;i < args.length; i++) {
+        //    System.out.println(i + " : " + args[i]);
+        // }
+    }
+}

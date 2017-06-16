@@ -1,0 +1,72 @@
+package javaex;
+
+public class JavaEx {
+    static int svalue1;         // 0
+    static int svalue2 = 12;    // 12
+    static String svalue3;      // null
+    int ivalue1;                // 0
+    int ivalue2 = 22;           // 22
+    String ivalue3;             // null
+    String ivalue4;             // null
+    
+    static {
+        int i = new java.util.Random().nextInt(3);
+        switch (i) {
+            case 0:
+                svalue3 = "Good Morning";
+                break;
+            case 1:
+                svalue3 = "Good Afternoon";
+                break;
+            case 2:
+                svalue3 = "Good Night";
+                break;
+        }
+        System.out.println("Static Initializer Runs");        
+    }
+    
+    public static void main(String[] args) {
+        System.out.println("static : " + svalue1 + "," + svalue2 + "," + svalue3);
+        JavaEx obj1 = new JavaEx();
+        System.out.print("obj1 : " + obj1.ivalue1 + "," + obj1.ivalue2);
+        System.out.println("," + obj1.ivalue3 + "," + obj1.ivalue4);
+        int i;
+        if (obj1.ivalue2 > obj1.ivalue1) {
+            i = 33;
+        }
+        // i++;                     // Error!! Not initialized.
+    }
+    
+    {
+        int i = new java.util.Random().nextInt(3);
+        switch (i) {
+            case 0:
+                ivalue3 = "Good Morning";
+                break;
+            case 1:
+                ivalue3 = "Good Afternoon";
+                break;
+            case 2:
+                ivalue3 = "Good Night";
+                break;
+        }
+        System.out.println("Instance Initializer Runs");
+    }
+
+    JavaEx() {
+        int i = new java.util.Random().nextInt(3);
+        switch (i) {
+            case 0:
+                ivalue4 = "Good Morning";
+                break;
+            case 1:
+                ivalue4 = "Good Afternoon";
+                break;
+            case 2:
+                ivalue4 = "Good Night";
+                break;
+        }
+        System.out.println("Constructor Runs");        
+    }
+}
+

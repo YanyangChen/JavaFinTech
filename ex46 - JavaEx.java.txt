@@ -1,0 +1,30 @@
+package javaex;
+
+import java.util.ArrayList;
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        ArrayList al = new ArrayList<>();
+        al.add(1);
+        al.add("abc");
+        al.add(new Car());
+        al.add(new Dog());
+        al.add(new Apple());
+        System.out.println(al);
+        System.out.println(al.isEmpty());
+        System.out.println(al.size());
+        System.out.println(al.get(0).getClass());
+        al.set(1,"def");
+        System.out.println(al.get(1));
+        // Car car1 = al.get(2);    // Error! Object cannot be assigned to Car
+        Car car1 = (Car) al.get(2);
+        System.out.println(al.contains(car1));
+        al.remove(car1);
+        al.remove(2);
+        System.out.println(al);
+    }
+}
+
+class Car {}
+class Dog {}
+class Apple {}

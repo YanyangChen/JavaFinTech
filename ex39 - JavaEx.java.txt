@@ -1,0 +1,115 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        System.out.println("For r1 :");
+        Rectangle1 r1 = new Rectangle1();
+        r1.length = -4;
+        r1.width = -3;
+        r1.area = -100;
+        r1.showDetails();
+        System.out.println();
+        System.out.println("For r2 :");
+        Rectangle2 r2 = new Rectangle2();
+        r2.setLength(-4);
+        r2.setLength(4);
+        r2.setWidth(4);        
+        r2.setArea(100);
+        r2.showDetails();
+        System.out.println();
+        System.out.println("For r3 :");
+        Rectangle3 r3 = new Rectangle3();
+        r3.setLength(4);
+        r3.setWidth(4);        
+        r3.showDetails();
+    }
+}
+
+class Rectangle1 {
+    public int length;
+    public int width;
+    public int area;
+    public void showDetails() {
+        System.out.println("Rectangle Details : " + length + " x " +
+                            width + " = " + area);
+    }
+}
+
+class Rectangle2 {
+    private int length;
+    private int width;
+    private int area;
+    public int getLength() {
+        return length;
+    }
+    public void setLength(int i) {
+        if (i >= 0) {
+            length = i;
+        } else {
+            System.out.println("Length not accepeted : " + i);
+        }
+    }
+    public int getWidth() {
+        return width;
+    }
+    public void setWidth(int i) {
+        if (i >= 0) {
+            width = i;
+        } else {
+            System.out.println("Width not accepeted : " + i);
+        }
+    }
+    public int getArea() {
+        return area;
+    }
+    public void setArea(int i) {
+        if (i >= 0) {
+            area = i;
+        } else {
+            System.out.println("Area not accepeted : " + i);
+        }
+    }
+    public void showDetails() {
+        System.out.println("Rectangle Details : " + length + " x " +
+                            width + " = " + area);
+    }
+}
+
+class Rectangle3 {
+    private int length;
+    private int width;
+    private int area;
+    public int getLength() {
+        return length;
+    }
+    public void setLength(int i) {
+        if (i >= 0) {
+            length = i;
+            calculateArea();     // update area after changing length
+        } else {
+            System.out.println("Length not accepeted : " + i);
+        }
+    }
+    public int getWidth() {
+        return width;
+    }
+    public void setWidth(int i) {
+        if (i >= 0) {
+            width = i;
+            calculateArea();     // update area after changing width
+        } else {
+            System.out.println("Width not accepeted : " + i);
+        }
+    }
+    public int getArea() {
+        return area;
+    }
+    public void calculateArea() {  // can be set as private
+        area = length * width;
+    }
+    public void showDetails() {
+        System.out.println("Rectangle Details : " + length + " x " +
+                            width + " = " + area);
+    }
+}
+

@@ -1,0 +1,43 @@
+package javaex;
+
+import java.util.ArrayList;
+
+public class JavaEx  {
+    public static void main(String[] args) {
+        ArrayList<Car> carlist = new ArrayList();
+        carlist.add(new Car("AB1234"));
+        carlist.add(new Car("BC2345"));
+        carlist.add(new Car("CD3456"));
+        carlist.add(new Car("DE4567"));
+        // carlist.add(1);              // Error
+        // carlist.add("xyz");          // Error
+        // carlist.add(new Dog());      // Error
+        System.out.println(carlist);
+        for (int i=0;i<carlist.size();i++) {
+            System.out.print(carlist.get(i) + " ");
+        }
+        System.out.println();
+        carlist.add(1,new Car("XX8888"));
+        for (Car c : carlist) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+        // Car[] carray = carlist.toArray(new Car[0]);
+        // System.out.println("carray : " + java.util.Arrays.toString(carray));
+        // ArrayList<Car> carlist2 = new ArrayList<Car>(java.util.Arrays.asList(carray));
+        // System.out.println("carlist2 : " + carlist2);
+    }
+}
+
+class Car {
+    String licenseNo;
+    Car (String s) {
+        licenseNo = s;
+    }
+    public String toString() {
+        return licenseNo;
+    }
+}
+
+class Dog {}
+

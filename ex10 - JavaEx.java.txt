@@ -1,0 +1,13 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int i = 1;
+        int j = 2;
+        String s1 = (i > j) ? "i larger than j" : "j larger than i";
+        System.out.println(s1);
+        int k = 3;
+        String s2 = (j == k) ? "j=k" : (j > k) ? "j>k" : "k>j";
+        System.out.println(s2);
+    }
+}

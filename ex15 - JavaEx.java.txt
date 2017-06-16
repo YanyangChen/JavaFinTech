@@ -1,0 +1,18 @@
+package javaex;
+import java.util.Arrays;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        int[] array1 = {44,22,33,11};
+        System.out.println("array1 before sort() " + Arrays.toString(array1));
+        Arrays.sort(array1);
+        System.out.println("array1 after sort() " + Arrays.toString(array1));
+        int[] array2 = new int[5];
+        Arrays.fill(array2, 222);
+        System.out.println("array2 after fill() " + Arrays.toString(array2));
+        System.arraycopy(array1,1,array2,0,2);
+        System.out.println("array2 after copy " + Arrays.toString(array2));
+        System.arraycopy(array2,0,array2,1,2);
+        System.out.println("array2 after copy " + Arrays.toString(array2));
+    }
+}

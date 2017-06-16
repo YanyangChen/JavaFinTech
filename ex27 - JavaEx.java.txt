@@ -1,0 +1,53 @@
+package javaex;
+
+public class JavaEx {
+    public static void main(String[] args) {
+        Car car1 = new Car();
+        Car car2 = new Car();
+        Car.incrementAwards();      // increment noOfAwards from 0 to 1
+        car1.incrementAwards();     // increment noOfAwards from 1 to 2
+        car2.incrementAwards();    // increment noOfAwards from 1 to 3
+        System.out.println("noOfAwards : " + Car.noOfAwards);
+        System.out.println();
+        car1.engineRunning = true;
+        car1.accelerate();
+        car2.engineRunning = true;
+        car2.accelerate();
+        System.out.println("Car 1 speed after accelerate() :");
+        car1.showMilePerHour(car1.speed);   // prints 6.2 in mph
+        System.out.println(car1.speed);     // prints 10
+        System.out.println();
+        System.out.println("Car 2 speed after accelerate() :");
+        car1.showMilePerHour(car2);         // prints 6.2 in mph
+        System.out.println(car2.speed);     // prints 10
+    }
+}
+
+class Car {
+    static int noOfAwards = 0;
+    char color;
+    boolean engineRunning;
+    int speed;
+    Car() {
+        color = 'W';
+        engineRunning = false;
+        speed = 0;
+    }
+    void accelerate() {
+        speed = speed + 10;
+    }
+    void brake() {
+        speed = speed - 10;
+    }
+    static void incrementAwards() {
+        noOfAwards++;
+    }
+    static void showMilePerHour(int speed) {
+        System.out.println(speed * 0.62 + " in mph");
+        // speed = speed + 100;   // illustrate pass by value
+    }
+    static void showMilePerHour(Car carObj) {
+        System.out.println(carObj.speed * 0.62 + " in mph");
+        // carObj.speed = carObj.speed + 100; // illustrate pass by reference
+    }
+}
